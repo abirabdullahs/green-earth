@@ -110,10 +110,16 @@ function plantByCatagories(id) {
 
 
 async function plantDetails(id) {
-    const url = `https://openapi.programming-hero.com/api/plant/${id}`;
-    const res = await fetch(url);
-    const data = await res.json();
-    showPlantDetails(data.plants);
+  // Show modal and spinner immediately
+  const container = document.getElementById("plantDetailes");
+  container.innerHTML = `<div class="flex justify-center items-center min-h-[200px] w-full"><span class="loading loading-dots loading-lg"></span></div>`;
+  document.getElementById("my_modal_1").showModal();
+
+  // Fetch data
+  const url = `https://openapi.programming-hero.com/api/plant/${id}`;
+  const res = await fetch(url);
+  const data = await res.json();
+  showPlantDetails(data.plants);
 }
 
 
