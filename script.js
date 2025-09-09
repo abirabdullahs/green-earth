@@ -30,7 +30,7 @@ const manageSpinner = (serial,status) =>{
 
 
 function loadAllPlants() {
-    manageSpinner("spinner-2",true);
+    manageSpinner("plants",true);
     const url = "https://openapi.programming-hero.com/api/plants";
     fetch(url)
     .then (res => res.json())
@@ -85,7 +85,7 @@ const showPlants = (plants) =>{
 
     });
 
-    manageSpinner("spinner-2",false);
+    manageSpinner("plants",false);
 
 }
 
@@ -95,7 +95,7 @@ loadAllPlants();
 
 function loadCatagories() {
 
-    manageSpinner ("spinner-1",true);
+    manageSpinner ("catagory",true);
     const url = "https://openapi.programming-hero.com/api/categories";
     fetch(url).then(res => res.json()).then(data => showCatagories(data.categories));
 
@@ -103,7 +103,7 @@ function loadCatagories() {
 
 
 function plantByCatagories(id) {
-  manageSpinner("spinner-2",true);
+  manageSpinner("plants",true);
     const url = `https://openapi.programming-hero.com/api/category/${id}`;
    fetch(url).then(res => res.json()).then(data => showPlantByCatagories(data.plants));
 }
@@ -135,7 +135,7 @@ const showCatagories = (categories) => {
 
     });
 
-    manageSpinner ("spinner-1",false);
+    manageSpinner ("catagory",false);
 }
 
 
@@ -214,7 +214,7 @@ const showPlantByCatagories = (plants) => {
 
     });
 
-    manageSpinner("spinner-2",false);
+    manageSpinner("plants",false);
 
 }
 
