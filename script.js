@@ -118,24 +118,32 @@ async function plantDetails(id) {
 
 
 const showCatagories = (categories) => {
-    const container = document.getElementById("catagories_container");
-    container.innerHTML = "";
+  const container = document.getElementById("catagories_container");
+  container.innerHTML = "";
 
-    categories.forEach(element => {
+  // Add 'All Plants' button at the top
+  const allBtnDiv = document.createElement("div");
+  allBtnDiv.innerHTML = `
+    <button onclick="handleAllPlants()" class="text-black text-left w-full bg-green-50 hover:bg-[#15803D] p-3 rounded border border-green-300 md:border-0 hover:text-white  mb-3" id="ctg-all">All Plants</button>
+  `;
+  container.append(allBtnDiv);
 
-        const catagoryName = document.createElement("div");
-        catagoryName.innerHTML = `
-        
-            <button onclick="handleActive(${element.id})" class="text-black text-left w-full hover:bg-[#15803D] p-3 rounded  border border-green-300 md:border-0 hover:text-white btn-ctg mb-3" id="ctg-${element.id}">${element.category_name}</button>
-        
-        `
+  categories.forEach(element => {
+    const catagoryName = document.createElement("div");
+    catagoryName.innerHTML = `
+      <button onclick="handleActive(${element.id})" class="text-black text-left w-full hover:bg-[#15803D] p-3 rounded  border border-green-300 md:border-0 hover:text-white btn-ctg mb-3" id="ctg-${element.id}">${element.category_name}</button>
+    `;
+    container.append(catagoryName);
+  });
 
-
-        container.append(catagoryName);
-
-    });
-
-    manageSpinner ("catagory",false);
+  manageSpinner ("catagory",false);
+}
+// Handle All Plants button click
+function handleAllPlants() {
+  loadAllPlants();
+  removeActive();
+  // Set active class to All Plants button
+  document.getElementById("ctg-all").classList.add("active");
 }
 
 
