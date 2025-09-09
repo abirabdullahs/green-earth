@@ -1,0 +1,12 @@
+*{
+     font-family: "Inter", sans-serif;
+}
+
+.active{
+    background-color: green;
+    color: white;
+}
+
+ul {
+  list-style-type: disc;
+}
