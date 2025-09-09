@@ -226,8 +226,11 @@ const showHistory = (name, value) => {
     const history = document.getElementById("history");
     const div = document.createElement("div");
     div.classList.add("cross_container")
+    // div.classList.add("flex")
+    // div.classList.add("justify-between")
+
     div.innerHTML = `
-        <div class="max-w-sm bg-green-50 rounded-2xl p-4 flex justify-between items-center shadow-sm mb-2">
+        <div class="max-w-full bg-green-50 rounded-2xl p-4 flex justify-between items-center shadow-sm mb-2">
             <div>
                 <h2 class="text-lg font-semibold text-gray-900">${name}</h2>
                 <p class="text-gray-500">৳${value} × 1</p>
@@ -298,33 +301,25 @@ const showPlantDetails = (element)=>{
         const div = document.createElement("div");
         div.innerHTML = `
 
-                <div class="max-w-sm bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100 p-4 flex flex-col">
+                <div class="max-w-sm bg-white rounded-2xl overflow-hidden p-4 flex flex-col">
 
+  <!-- Card Content -->
+   <h2 id="name-${element.id}" class="text-lg font-semibold text-black mb-5">${element.name}</h2>
   <!-- Image Fixed Size -->
-  <div class="w-full h-48 mb-4 overflow-hidden rounded-lg">
+  <div class="w-full h-50 mb-4 overflow-hidden rounded-lg">
     <img src="${element.image}" alt="" 
          class="w-full h-full object-cover rounded">
   </div>
 
-  <!-- Card Content -->
-   <h2 id="name-${element.id}" class="text-lg font-semibold text-gray-800">${element.name}</h2>
-
-  <!-- Description Limited -->
-  <p class="text-sm text-gray-500 mt-1 line-clamp-3">
-    ${element.description}
-  </p>
-
-  <!-- Category & Price -->
-  <div class="flex items-center justify-between mt-3">
-    <span class="px-3 py-1 text-sm rounded-full bg-green-100 text-green-700">${element.category}</span>
-    <span class="font-semibold text-gray-800">৳${element.price}</span>
+  <div>
+ <p> <span class="font-bold ">category: </span> ${element.category} </p>
+ <p> <span class="font-bold ">price: </span> ৳${element.price} </p>
   </div>
 
-  <!-- Button pushed to bottom -->
-  <button onclick="showHistory('${element.name}', ${element.price})"  
-    class="cart-btn-${element.id} cart-btn w-full mt-4 bg-green-600 hover:bg-green-700 text-white font-medium py-2 rounded-full transition">
-    Add to Cart
-  </button>
+  <!-- Description Limited -->
+  <p class="text-sm text-gray-500 mt-1">
+   <span class="font-semibold text-black">Description: </span> ${element.description}
+  </p>
 
 </div>
 

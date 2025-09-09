@@ -131,7 +131,7 @@
     your cart
   </h1>
 
-  <div id="history" class="mx-3">
+  <div id="history" class="mx-3 flex flex-col justify-between">
     <!-- history items will go here -->
   </div>
 
@@ -283,10 +283,11 @@
     <!-- <h3 class="text-lg font-bold">Hello!</h3>
     <p class="py-4">Press ESC key or click the button below to close</p> -->
 
-    <div id="plantDetailes"></div>
+    
 
-    <div class="modal-action">
-      <form method="dialog">
+    <div class="modal-action flex flex-col">
+      <div id="plantDetailes" ></div>
+      <form method="dialog" class="flex justify-end">
         <!-- if there is a button in form, it will close the modal -->
         <button class="btn">Close</button>
       </form>
